@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+
+<style>
+#back{
+	position:absolute;
+	top:0;
+	height:100vh;
+	z-index:-1;	
+}
+#back video{
+	object-fit:cover;
+}
+	body{
+		
+	}
+	tr{
+		margin:20px;
+	}
+	th{
+		font-family:"Kh Muol";
+	}
+	table{
+		width:100%;
+		height:100%;
+	}
+	input[type="text"],select{
+		width:100%;
+		padding:12px 20px;
+		margin:9px opx;
+		padding:12px 20px;
+		display:block;
+		border:1px solid #CCC;
+		box-sizing:border-box;
+		border-radius:7px;	
+		font-size:20px;
+		font-family:Angkor;
+	}
+	input[type=button]{
+		font-size:20px;
+		width:100%;
+		padding:12px 20px;
+		margin:9px opx;
+		background-color:green;
+		color:white;
+		border-radius:10px;
+		font-size:20px;
+	}
+	*/
+</style>
+</head>
+
+<body>
+<div id="back">
+<video src="file:///C|/Users/Ong Bona/Desktop/New folder/background.mov" autoplay width="100%" height="100%">
+</video>
+</div>
+<script type="text/javascript">
+	var a;
+	var b;
+	var test;
+	var r;
+	var d=(document.getElementById("d").value);
+	var number;
+	
+	function getrandom(){
+		var min=1;
+		var max=6;
+		
+	 r= min+parseInt(Math.random()*(max-min+1));
+		document.getElementById("c").value=r;
+	}
+	function start(){
+		test=setInterval("getrandom()",10);
+	}
+	function mstop(){
+		var a=parseInt(document.getElementById("a").value);
+		var b=parseInt(document.getElementById("b").value);
+		
+		var number=parseInt(document.getElementById("num").value);
+			document.getElementById("b").value=0;
+		clearInterval(test);
+		if(number==r){
+			a=a+((b*5)+b);
+			document.getElementById("d").value="ចុមឈ្នះបាត់ ជួយអរផង";
+			document.getElementById("a").value=a;
+		}
+		else{
+			
+			if(a==0){
+				document.getElementById("d").value="Game Over ចូលរូមសោកស្តាយផង";
+			}
+			else{
+				document.getElementById("d").value="លេងចាញ់គេហើយប៉ិ";
+			}
+		}
+		
+	}
+	function reset(){
+		b=0;
+		a=2000;
+		document.getElementById("a").value=a;
+		document.getElementById("b").value=b;
+		document.getElementById("c").value="";
+		document.getElementById("d").value="";
+		clearInterval(test);
+	}
+	function p(){
+		var a=parseInt(document.getElementById("a").value);
+		var b=parseInt(document.getElementById("b").value);
+		if(a>0){
+			b=b+500;
+			a=a-500;
+		}
+		else{
+			document.getElementById("b").value="Game Over";	
+		}
+		document.getElementById("b").value=b+"$";
+		document.getElementById("a").value=a+"$";
+	}
+	function m(){
+		var a=parseInt(document.getElementById("a").value);
+		var b=parseInt(document.getElementById("b").value);
+		if((a>0)&(b>0)){
+			b=b-500;
+			a=a+500;
+		}
+		else{
+		}
+		document.getElementById("b").value=b+"$";
+		document.getElementById("a").value=a+"$";
+	}
+	function n1(){
+		var number=parseInt(document.getElementById("n1").value);
+	}
+			
+	
+</script>
+
+
+
+
+
+
+<div id="con">
+<table width="437" align="center" bgcolor="#EEEEEE">
+	<tr>
+    	<th colspan="4" align="center" bgcolor="#CC6633">ល្បែងកំសាន្តឡុកឡាក់</th>
+    </tr>
+    <tr>
+    	<th align="left">ប្រាក់ដើម($)</th>
+        <th><input type="text" id="a" value="2000$" readonly></th>
+    </tr>
+    <tr bgcolor="#CC9900">
+    	<th align="left">ភ្នាល់($)</th>
+        <th><input type="text" id="b" value="0$" readonly></th>
+        <th><input type="button" value="+" onClick="p()"></th>
+        <th><input type="button" value="-" onClick="m()"></th>
+    </tr>
+    <tr>
+    	<th align="left">ចាក់លេខ</th>
+        <th>
+        	<select id="num">
+            	<option >1</option>
+                <option >2</option>
+                <option >3</option>
+                <option >4</option>
+                <option >5</option>
+                <option >6</option>
+            </select>
+        </th>
+    </tr>
+    <tr bgcolor="#CC00CC">
+    	<th align="right"><input type="button" value="Start" onClick="start()" ></th>
+        <th><input type="button" value="Stop" onClick="mstop()"></th>
+        <th colspan="2"><input type="button" value="Reset" onClick="reset()"></th>
+    </tr>
+    <tr>
+    	<th align="left">មេចេញ</th>
+        <th><input type="text" id="c"></th>
+    </tr>
+    <tr bgcolor="#FF0033">
+    	<th align="left">លទ្ធផល</th>
+        <th colspan="3"><input type="text" id="d"></th>
+    </tr>
+</table>
+</div>
+</body>
+</html>
